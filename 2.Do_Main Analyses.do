@@ -104,30 +104,3 @@ esttab auto_g* , stats(N r2_a) $esttab_tail
  est store covid_v3
 
 esttab covid_v* , stats(N r2_a) $esttab_tail 
-
-
-*********************************************************************************
-** Figure 2. Automation Probability Index (API) and O*NET task measures
-*********************************************************************************
-
-binscatterhist automation z_r_cog, histogram(automation z_r_cog) xhistbins(40) yhistbins(40) msymbols(T) text(0.2 2 "Coeff. = 0.1974" "Std. err. = 0.0005", place(e))  xhistbarheight(15) yhistbarheight(15) ///
-	title("Automation Probability Index  & Routine Cognitive Task", size(medium)) ///
-	ytitle("Automation Probability Index ", size(medsmall)) ///
-	xtitle("Routine Cognitive Task", size(medsmall)) ylabel() saving(auto_rc,replace)
-	
-binscatterhist automation z_r_man, histogram(automation z_r_man) xhistbins(40) yhistbins(40) ymin(0.001) msymbols(Oh) text(0.8 0.7 "Coeff. = -0.4794" "Std. err. = 0.0012", place(e))  ///
-	title("Automation Probability Index  & Routine Manual Task", size(medium)) ///
-	ytitle("Automation Probability Index ", size(medsmall)) ///
-	xtitle("Routine Manual Task", size(medsmall)) ylabel() saving(auto_rm,replace)		
-
-binscatterhist automation z_nr_cog_anal, histogram(automation z_nr_cog_anal) xhistbins(40) yhistbins(40) ymin(0.001) msymbols(X) text(0.7 0.9 "Coeff. = -0.1260" "Std. err. = 0.0003", place(e))  ///
-	title("Automation Probability Index  & Nonroutine analytic", size(medium)) ///
-	ytitle("Automation Probability Index ", size(medsmall)) ///
-	xtitle("Nonroutine analytic", size(medsmall)) ylabel() saving(auto_na,replace)
-	
-binscatterhist automation z_nr_cog_pers, histogram(automation z_nr_cog_pers) xhistbins(40) yhistbins(40) ymin(0.001) msymbols(X) text(0.7 0.9 "Coeff. = -0.1260" "Std. err. = 0.0003", place(e))  ///
-	title("Automation Probability Index  & Nonroutine Interpersonal", size(medium)) ///
-	ytitle("Automation Probability Index ", size(medsmall)) ///
-	xtitle("Nonroutine Interpersonal", size(medsmall)) ylabel() saving(auto_ni,replace)	
-	
-gr combine "auto_rc" "auto_rm" "auto_na"  "auto_ni", col(2) ysize(3) xsize(2) iscale(*0.8) scheme(s1color) title("",size(medium))		
